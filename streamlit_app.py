@@ -26,4 +26,4 @@ ingredients_list=st.multiselect(
 #New section to display smoothiefroot nutrition information
 import requests 
 smoothiefroot_response = requests.get("https://my.smoothiefroct.com/api/fruit/watermelon")
-st.text(smoothief root_response)
+st.text(smoothiefroot_response)
