@@ -20,37 +20,10 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('Fruit
 
 ingredients_list=st.multiselect(
     'Choose upto 5 ingredients:'
-    ,my_dataframe
-  
+    ,my_dataframe  
 )
 
-if ingredients_list:
-    #st.write(ingredients_list)
-    #st.text(ingredients_list)
-
-    ingredients_string=''
-    
-    for fruit_chosen in ingredients_list:
-        ingredients_string +=fruit_chosen + ' '
-
-    st.write(ingredients_string)
-
-
- 
-my_insert_stmt = """ insert into smoothies.public.orders(ingredients)
-            values ('""" + ingredients_string + """')"""
-
-st.write(my_insert_stmt)
-#st.stop()
-    
-time_to_insert=st.button('Submit Button')
-
-if time_to_insert:
-    session.sql(my_insert_stmt).collect()
-    st.success('Your Smoothie is ordered!', icon="✅")
-
-
-
-# Get the current credentials
-session = get_active_session()
-
+#New section to display smoothiefroot nutrition information
+import requests 
+smoothiefroot_response = requests.get("https://my.smoothiefroct.com/api/fruit/watermelon")
+st.text(smoothief root_response)
